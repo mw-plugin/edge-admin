@@ -45,26 +45,22 @@ Install_App()
 
 Uninstall_App()
 {
-	if [ -f /usr/lib/systemd/system/redis.service ];then
-		systemctl stop redis
-		systemctl disable redis
-		rm -rf /usr/lib/systemd/system/redis.service
+	if [ -f /usr/lib/systemd/system/goedge-admin.service ];then
+		systemctl stop goedge-admin
+		systemctl disable goedge-admin
+		rm -rf /usr/lib/systemd/system/goedge-admin.service
 		systemctl daemon-reload
 	fi
 
-	if [ -f /lib/systemd/system/redis.service ];then
-		systemctl stop redis
-		systemctl disable redis
-		rm -rf /lib/systemd/system/redis.service
+	if [ -f /lib/systemd/system/goedge-admin.service ];then
+		systemctl stop goedge-admin
+		systemctl disable goedge-admin
+		rm -rf /lib/systemd/system/goedge-admin.service
 		systemctl daemon-reload
 	fi
 
-	if [ -f $serverPath/redis/initd/redis ];then
-		$serverPath/redis/initd/redis stop
-	fi
-
-	if [ -d $serverPath/redis ];then
-		rm -rf $serverPath/redis
+	if [ -d $serverPath/goedge-admin ];then
+		rm -rf $serverPath/goedge-admin
 	fi
 	
 	echo "卸载redis成功"
