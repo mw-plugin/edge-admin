@@ -37,6 +37,9 @@ Install_App()
 		rm -rf $GOEDGE_DIR/${FILE_TGZ}
 	fi
 
+	cd ${rootPath} && python3 ${rootPath}/plugins/goedge-admin/index.py start
+	cd ${rootPath} && python3 ${rootPath}/plugins/goedge-admin/index.py initd_install
+
 	echo '安装goedge完成'
 }
 
