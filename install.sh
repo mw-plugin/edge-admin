@@ -36,6 +36,8 @@ Install_App()
 	if [ -d $GOEDGE_DIR/${FILE_TGZ} ];then
 		rm -rf $GOEDGE_DIR/${FILE_TGZ}
 	fi
+
+	echo '安装goedge完成'
 }
 
 Uninstall_App()
