@@ -12,6 +12,16 @@ VERSION=$2
 
 # systemctl status goedge-admin
 
+ARCH=`uname -m`
+ARCH_NAME=''
+case $(uname -m) in
+    i386)   ARCH_NAME="386" ;;
+    i686)   ARCH_NAME="386" ;;
+    x86_64) ARCH_NAME="amd64" ;;
+    arm)    ARCH_NAME="arm64" ;;
+	arm64)  ARCH_NAME="arm64" ;;
+esac
+
 Install_App()
 {
 	echo '正在安装脚本文件...' > $install_tmp
@@ -20,7 +30,7 @@ Install_App()
 
 	mkdir -p $serverPath/goedge-admin
 
-	FILE_TGZ=edge-admin-linux-amd64-plus-v${VERSION}.zip
+	FILE_TGZ=edge-admin-linux-${ARCH_NAME}-plus-v${VERSION}.zip
 	GOEDGE_DIR=$serverPath/source/goedge/
 
 	if [ ! -f $GOEDGE_DIR/${FILE_TGZ} ];then
