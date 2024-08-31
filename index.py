@@ -78,7 +78,7 @@ def checkArgs(data, ck=[]):
     return (True, mw.returnJson(True, 'ok'))
 
 def configTpl():
-    path = getPluginDir() + '/tpl'
+    path = getServerDir() + '/configs'
     pathFile = os.listdir(path)
     tmp = []
     for one in pathFile:
