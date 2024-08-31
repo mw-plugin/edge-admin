@@ -16,6 +16,8 @@ Install_App()
 	mkdir -p $serverPath/source
 	mkdir -p $serverPath/source/goedge
 
+	mkdir -p $serverPath/goedge-admin
+
 	FILE_TGZ=edge-admin-linux-amd64-plus-v${VERSION}.zip
 	GOEDGE_DIR=$serverPath/source/goedge/
 
@@ -25,6 +27,10 @@ Install_App()
 	
 	if [ ! -d $GOEDGE_DIR/edge-admin ];then
 		cd $GOEDGE_DIR && unzip ${FILE_TGZ}
+	fi
+
+	if [ -d $GOEDGE_DIR/edge-admin ];then
+		cp -rf $GOEDGE_DIR/edge-admin/* $serverPath/goedge-admin/
 	fi
 
 	if [ -d $GOEDGE_DIR/${FILE_TGZ} ];then
