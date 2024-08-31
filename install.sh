@@ -23,7 +23,9 @@ Install_App()
 		wget -O $GOEDGE_DIR/${FILE_TGZ} https://dl.goedge.cloud/edge/v${VERSION}/${FILE_TGZ}
 	fi
 	
-	cd $GOEDGE_DIR && unzip ${FILE_TGZ}
+	if [ ! -d $GOEDGE_DIR/edge-admin ];then
+		cd $GOEDGE_DIR && unzip ${FILE_TGZ}
+	fi
 
 	if [ -d $GOEDGE_DIR/${FILE_TGZ} ];then
 		rm -rf $GOEDGE_DIR/${FILE_TGZ}
