@@ -16,38 +16,17 @@ Install_App()
 	mkdir -p $serverPath/source
 	mkdir -p $serverPath/source/redis
 
-	FILE_TGZ=redis-${VERSION}.tar.gz
-	REDIS_DIR=$serverPath/source/redis
+	FILE_TGZ=edge-admin-linux-amd64-plus-v${VERSION}.zip
+	GOEDGE_DIR=$serverPath/source/redis/
 
-	if [ ! -f $REDIS_DIR/${FILE_TGZ} ];then
-		wget -O $REDIS_DIR/${FILE_TGZ} http://download.redis.io/releases/${FILE_TGZ}
+	if [ ! -f $GOEDGE_DIR/${FILE_TGZ} ];then
+		wget -O $GOEDGE_DIR/${FILE_TGZ} https://dl.goedge.cloud/edge/v${VERSION}/${FILE_TGZ}
 	fi
 	
-	cd $REDIS_DIR && tar -zxvf ${FILE_TGZ}
+	cd $GOEDGE_DIR && unzip ${FILE_TGZ}
 
-	CMD_MAKE=`which gmake`
-	if [ "$?" == "0" ];then
-		cd redis-${VERSION} && gmake PREFIX=$serverPath/redis install
-	else
-		cd redis-${VERSION} && make PREFIX=$serverPath/redis install
-	fi
-
-	if [ -d $serverPath/redis ];then
-		mkdir -p $serverPath/redis/data
-		sed '/^ *#/d' redis.conf > $serverPath/redis/redis.conf
-
-		echo "${VERSION}" > $serverPath/redis/version.pl
-		echo '安装完成'
-
-		cd ${rootPath} && python3 ${rootPath}/plugins/redis/index.py start
-		cd ${rootPath} && python3 ${rootPath}/plugins/redis/index.py initd_install
-		
-	else
-		echo '安装失败!'
-	fi
-
-	if [ -d ${REDIS_DIR}/redis-${VERSION} ];then
-		rm -rf ${REDIS_DIR}/redis-${VERSION}
+	if [ -d $GOEDGE_DIR/${FILE_TGZ} ];then
+		rm -rf $GOEDGE_DIR/${FILE_TGZ}
 	fi
 }
 
