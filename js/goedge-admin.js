@@ -5,5 +5,5 @@ function goedgeReadme(){
     readme += '<li>官方地址</li>';
     readme += '<li>https://goedge.cloud/</li>';
     readme += '</ul>';
-    $('.soft-man-con').html(readme);   
+    $('.soft-man-con').html(readme);
 }
