@@ -1,0 +1,17 @@
+{
+	"sort": 7,
+	"ps": "CDN & WAF集群管理系统[admin]【个人版】",
+	"name": "goedge-admin",
+	"title": "GoEdge管理系统",
+	"shell": "install.sh",
+	"versions":["1.4.3"],
+	"tip": "soft",
+	"checks": "server/goedge-admin",
+	"path": "server/goedge-admin",
+	"display": 1,
+	"author": "goedge-admin",
+	"date": "2024-08-31",
+	"home": "https://goedge.cloud",
+	"type": 0,
+	"pid": "5"
+}
