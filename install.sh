@@ -14,10 +14,10 @@ Install_App()
 {
 	echo '正在安装脚本文件...' > $install_tmp
 	mkdir -p $serverPath/source
-	mkdir -p $serverPath/source/redis
+	mkdir -p $serverPath/source/goedge
 
 	FILE_TGZ=edge-admin-linux-amd64-plus-v${VERSION}.zip
-	GOEDGE_DIR=$serverPath/source/redis/
+	GOEDGE_DIR=$serverPath/source/goedge/
 
 	if [ ! -f $GOEDGE_DIR/${FILE_TGZ} ];then
 		wget -O $GOEDGE_DIR/${FILE_TGZ} https://dl.goedge.cloud/edge/v${VERSION}/${FILE_TGZ}
