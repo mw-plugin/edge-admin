@@ -37,6 +37,8 @@ Install_App()
 		rm -rf $GOEDGE_DIR/${FILE_TGZ}
 	fi
 
+	echo "${VERSION}" > $serverPath/goedge-admin/version.pl
+
 	cd ${rootPath} && python3 ${rootPath}/plugins/goedge-admin/index.py start
 	cd ${rootPath} && python3 ${rootPath}/plugins/goedge-admin/index.py initd_install
 
