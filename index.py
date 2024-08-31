@@ -38,12 +38,12 @@ def getInitDFile():
 
 
 def getConf():
-    path = getServerDir() + "/redis.conf"
+    path = getServerDir() + "/goedge-admin.conf"
     return path
 
 
 def getConfTpl():
-    path = getPluginDir() + "/config/redis.conf"
+    path = getPluginDir() + "/config/goedge-admin.conf"
     return path
 
 
@@ -142,7 +142,7 @@ def initDreplace():
     return file_bin
 
 
-def redisOp(method):
+def edgeOp(method):
     file = initDreplace()
 
     current_os = mw.getOs()
@@ -165,23 +165,20 @@ def redisOp(method):
 
 
 def start():
-    return redisOp('start')
+    return edgeOp('start')
 
 
 def stop():
-    return redisOp('stop')
+    return edgeOp('stop')
 
 
 def restart():
-    status = redisOp('restart')
-
-    log_file = runLog()
-    mw.execShell("echo '' > " + log_file)
+    status = edgeOp('restart')
     return status
 
 
 def reload():
-    return redisOp('reload')
+    return edgeOp('reload')
 
 
 def getPort():
