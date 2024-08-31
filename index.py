@@ -38,7 +38,7 @@ def getInitDFile():
 
 
 def getConf():
-    path = getServerDir() + "/goedge-admin.conf"
+    path = getServerDir() + "/configs/server.yaml"
     return path
 
 
