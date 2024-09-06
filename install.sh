@@ -77,7 +77,7 @@ Uninstall_App()
 		rm -rf $serverPath/goedge-admin
 	fi
 	
-	echo "卸载redis成功"
+	echo "卸载goedge成功"
 }
 
 action=$1
